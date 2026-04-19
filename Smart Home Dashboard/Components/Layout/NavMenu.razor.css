@@ -1,0 +1,39 @@
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4) !important;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+}
+
+/* ГЛАВНОЕ: Убираем градиент и ставим стекло */
+.nav-scrollable {
+    background-image: none !important; /* Удаляет фиолетовый */
+    background-color: rgba(13, 27, 42, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item ::deep a {
+    color: #d7d7d7 !important;
+    border-radius: 8px;
+    margin: 4px 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+    .nav-item ::deep a.active {
+        background-color: rgba(0, 210, 255, 0.3) !important;
+        color: white !important;
+        border: 1px solid rgba(0, 210, 255, 0.5) !important;
+    }
+
+    .nav-item ::deep a:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }

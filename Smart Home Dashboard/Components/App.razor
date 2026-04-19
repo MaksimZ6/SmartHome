@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <ResourcePreloader />
+    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["Smart_Home_Dashboard.styles.css"]" />
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <HeadOutlet />
+    <head>
+        <style>
+                    /* Применяем фон ко всему телу документа */
+                    body {
+                        /* Укажи здесь точное имя и расширение твоего файла */
+                        background-image: url('bg_home.jpg') !important;
+                        /* Настройки, чтобы картинка не повторялась и растягивалась */
+                        background-repeat: no-repeat !important;
+                        background-size: cover !important;
+                        background-position: center center !important;
+                        background-attachment: fixed !important; /* Фон не скроллится */
+                    }
+
+                        /* Затемняющий слой поверх картинки, чтобы контент читался */
+                        body::before {
+                            content: "";
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            /* Регулируй прозрачность (последнее число 0.6) по вкусу */
+                            background-color: rgba(0, 0, 0, 0.6) !important;
+                            z-index: -1; /* Слой должен быть ПОД контентом */
+                        }
+        </style>
+    </head>
+</head>
+
+<body>
+    <Routes />
+    <ReconnectModal />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+
+</html>

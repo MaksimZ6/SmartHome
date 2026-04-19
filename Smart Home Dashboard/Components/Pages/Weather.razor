@@ -1,0 +1,112 @@
+﻿@page "/weather"
+@attribute [StreamRendering]
+
+<PageTitle>Погода | Maxoloroid</PageTitle>
+
+<div class="container mt-4">
+    <div class="p-4 glass-panel rounded-4 shadow mb-4">
+        <h1 class="text-white fw-bold mb-0">🌤️ Прогноз погоды</h1>
+        <p class="text-white-50">Данные датчиков внешней системы</p>
+    </div>
+
+    @if (forecasts == null)
+    {
+        <div class="d-flex justify-content-center mt-5">
+            <div class="spinner-border text-info" role="status"></div>
+        </div>
+    }
+    else
+    {
+        <div class="card glass-panel border-0 shadow overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-borderless text-white mb-0">
+                    <thead class="glass-header">
+                        <tr>
+                            <th class="py-3 ps-4">Дата</th>
+                            <th class="py-3">Темп. (C)</th>
+                            <th class="py-3">Темп. (F)</th>
+                            <th class="py-3 pe-4">Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var forecast in forecasts)
+                        {
+                            <tr class="glass-row">
+                                <td class="py-3 ps-4 opacity-75">@forecast.Date.ToShortDateString()</td>
+                                <td class="py-3 fw-bold text-info">@forecast.TemperatureC°</td>
+                                <td class="py-3 opacity-75">@forecast.TemperatureF°</td>
+                                <td class="py-3 pe-4">
+                                    <span class="badge @GetBadgeStyle(forecast.Summary)">
+                                        @forecast.Summary
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .glass-header {
+        background: rgba(0, 210, 255, 0.1);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .glass-row {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: background 0.3s ease;
+    }
+
+    .glass-row:hover {
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .badge-hot { background: rgba(255, 77, 77, 0.2); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.3); }
+    .badge-cold { background: rgba(0, 210, 255, 0.2); color: #00d2ff; border: 1px solid rgba(0, 210, 255, 0.3); }
+    .badge-normal { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+</style>
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Имитация загрузки данных
+        await Task.Delay(500);
+
+        var startDate = DateOnly.FromDateTime(DateTime.Now);
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        {
+            Date = startDate.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = summaries[Random.Shared.Next(summaries.Length)]
+        }).ToArray();
+    }
+
+    private string GetBadgeStyle(string summary) => summary switch
+    {
+        "Hot" or "Sweltering" or "Scorching" => "badge-hot",
+        "Freezing" or "Bracing" or "Chilly" => "badge-cold",
+        _ => "badge-normal"
+    };
+
+    private class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+        public int TemperatureC { get; set; }
+        public string? Summary { get; set; }
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}

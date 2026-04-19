@@ -1,0 +1,328 @@
+﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@using Smart_Home_Dashboard.Data
+@using System.Timers
+@inject AppDbContext Db
+@inject NavigationManager Nav
+@rendermode InteractiveServer
+
+<div class="container mt-4 pb-5">
+    @if (UserSession.IsLoggedIn)
+    {
+        <div class="row mb-4 g-3">
+            <div class="col-md-6">
+                <div class="p-4 glass-panel rounded-4 shadow h-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="text-info opacity-75 mb-1">Привет, @UserSession.CurrentUser!</h4>
+                            <h1 class="text-white fw-bold mb-0">🏠 Maxoloroid</h1>
+                            <p class="small text-white-50 mb-0">Система активна</p>
+                        </div>
+                        <button class="btn btn-sm btn-glass-outline" @onclick="Logout">Выход</button>
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <button class="btn btn-sm btn-glass-blue" @onclick='() => SetScenario("Кино")'>🎬 Кино</button>
+                        <button class="btn btn-sm btn-glass-red" @onclick='() => SetScenario("Ушел")'>🚪 Я ушел</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 glass-panel-blue text-white rounded-4 shadow h-100 d-flex flex-column justify-content-center align-items-center text-center">
+                    <h2 class="mb-0 fw-bold">@Math.Round(devices?.Where(d => d.IsOn).Sum(d => (d.Wattage * d.Value / 100.0)) ?? 0, 1) Вт</h2>
+                    <small class="text-white-50">Текущее потребление всей системы</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card glass-panel mb-4 shadow border-0">
+            <div class="card-body">
+                <h6 class="text-info text-uppercase fw-bold mb-3 small opacity-75">Добавить устройство</h6>
+                <div class="row g-2">
+                    <div class="col-md-3">
+                        <input @bind="newName" class="form-control glass-input" placeholder="Название..." />
+                    </div>
+                    <div class="col-md-2">
+                        <select @bind="newRoom" class="form-select glass-input">
+                            <option value="Гостиная">Гостиная</option>
+                            <option value="Спальня">Спальня</option>
+                            <option value="Кухня">Кухня</option>
+                            <option value="Ванная">Ванная</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select @bind="newIcon" class="form-select glass-input">
+                            <option value="💡">💡 Свет</option>
+                            <option value="❄️">❄️ Кондей</option>
+                            <option value="📺">📺 ТВ</option>
+                            <option value="♨️">♨️ Тепло</option>
+                            <option value="☕">☕ Кофе</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" @bind="newWattage" class="form-control glass-input" placeholder="Вт" />
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-info w-100 fw-bold shadow-sm" @onclick="AddNewDevice">ДОБАВИТЬ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2 mb-4">
+            <button class="btn btn-success glass-btn-green fw-bold shadow-sm" @onclick="TurnOnEverything">Включить всё</button>
+            <button class="btn btn-danger glass-btn-red fw-bold shadow-sm" @onclick="TurnOffEverything">Выключить всё</button>
+            <button class="btn btn-outline-warning glass-btn-yellow" @onclick="AddDemoDevices">Демо-набор</button>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                @if (devices != null)
+                {
+                    @foreach (var group in devices.GroupBy(d => d.Room))
+                    {
+                        <h3 class="text-white mb-3 border-bottom border-white border-opacity-10 pb-2 fw-light">@group.Key</h3>
+                        <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+                            @foreach (var device in group)
+                            {
+                                <div class="col">
+                                    <div class="card h-100 glass-device-card @(device.IsOn ? "active-device" : "") transition-card border-0 shadow">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="fs-1">@device.Icon</span>
+                                                <div class="form-check form-switch custom-switch">
+                                                    <input class="form-check-input" type="checkbox" checked="@device.IsOn" @onchange="() => ToggleDevice(device)">
+                                                </div>
+                                            </div>
+                                            <h4 class="fw-bold mt-2">@device.Name</h4>
+                                            <p class="small opacity-75 mb-2">@device.Wattage Вт</p>
+                                            
+                                            @if (device.IsOn)
+                                            {
+                                                <div class="mt-3 animate-slide-up">
+                                                    <input type="range" class="form-range custom-range" @bind="device.Value" @bind:after="() => SaveChange(device)">
+                                                    <div class="d-flex justify-content-between small">
+                                                        <button class="btn btn-link btn-sm text-info p-0 text-decoration-none opacity-75" @onclick="() => StartOffTimer(device)">⏲️ Таймер 10с</button>
+                                                        <span class="fw-bold text-info">@device.Value%</span>
+                                                    </div>
+                                                </div>
+                                            }
+                                            <div class="mt-3 pt-2 border-top border-white border-opacity-10 d-flex justify-content-end">
+                                                <button class="btn btn-sm btn-link text-danger p-0 text-decoration-none opacity-50 hover-opacity-100" @onclick="() => DeleteDevice(device)">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card glass-panel border-0 shadow h-100">
+                    <div class="card-header border-white border-opacity-10 text-white fw-bold bg-transparent">📜 Журнал событий</div>
+                    <div class="card-body p-0 overflow-auto" style="max-height: 600px;">
+                        <ul class="list-group list-group-flush">
+                            @if (eventLogs != null)
+                            {
+                                @foreach (var log in eventLogs)
+                                {
+                                    <li class="list-group-item bg-transparent text-white-50 border-white border-opacity-10 small py-2">
+                                        <span class="text-info opacity-75">@log.Time</span>: @log.Message
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    /* БАЗОВЫЕ НАСТРОЙКИ СТЕКЛА */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .glass-panel-blue {
+        background: rgba(0, 123, 255, 0.15) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 123, 255, 0.3) !important;
+    }
+
+    /* КАРТОЧКИ УСТРОЙСТВ */
+    .glass-device-card {
+        background: rgba(255, 255, 255, 0.03) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        color: rgba(255,255,255,0.7);
+    }
+
+    .glass-device-card.active-device {
+        background: rgba(0, 210, 255, 0.1) !important;
+        border: 1px solid rgba(0, 210, 255, 0.3) !important;
+        color: white;
+    }
+
+    /* ИНПУТЫ */
+    .glass-input {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    .glass-input:focus {
+        background: rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+    }
+
+    /* КНОПКИ */
+    .btn-glass-blue { background: rgba(0, 123, 255, 0.2); color: #00d2ff; border: 1px solid rgba(0, 123, 255, 0.3); }
+    .btn-glass-red { background: rgba(220, 53, 69, 0.2); color: #ff4d4d; border: 1px solid rgba(220, 53, 69, 0.3); }
+    .btn-glass-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
+    
+    .glass-btn-green { background: rgba(40, 167, 69, 0.3) !important; border: none; }
+    .glass-btn-red { background: rgba(220, 53, 69, 0.3) !important; border: none; }
+
+    /* АНИМАЦИИ */
+    .transition-card { transition: all 0.3s ease; }
+    .transition-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08) !important; }
+    
+    .animate-slide-up { animation: slideUp 0.3s ease; }
+    @@keyframes slideUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ТЮНИНГ СТАНДАРТНЫХ ЭЛЕМЕНТОВ */
+    .form-check-input:checked { background-color: #00d2ff; border-color: #00d2ff; }
+    .custom-range::-webkit-slider-runnable-track { background: rgba(255,255,255,0.1); }
+    .custom-range::-webkit-slider-thumb { background: #00d2ff; }
+</style>
+<style>
+    /* ... (все твои предыдущие стили) ... */
+
+    /* УЛУЧШЕННЫЕ СТЕКЛЯННЫЕ ИНПУТЫ И СЕЛЕКТЫ */
+    .glass-input {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        appearance: none; /* Убираем системную стрелочку, если нужно */
+        cursor: pointer;
+    }
+
+    /* ИСПРАВЛЕНИЕ ВЫПАДАЮЩЕГО СПИСКА (того самого белого квадрата) */
+    select.glass-input option {
+        background-color: #1a1a1a !important; /* Темный фон для списка */
+        color: white !important;
+        padding: 10px !important;
+    }
+
+    /* Для браузеров на базе Chrome/Edge стилизуем именно раскрытый список */
+    select.glass-input:focus {
+        background: rgba(255, 255, 255, 0.15) !important;
+        outline: none;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    }
+
+    /* Тюнинг скроллбара в журнале событий, чтобы не выбивался */
+    .overflow-auto::-webkit-scrollbar {
+        width: 6px;
+    }
+    .overflow-auto::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .overflow-auto::-webkit-scrollbar-thumb {
+        background: rgba(0, 210, 255, 0.3);
+        border-radius: 10px;
+    }
+</style>
+
+@code { 
+    // Твой C# код остается без изменений...
+    private List<SmartDevice> devices = new();
+    private List<SmartLog> eventLogs = new();
+    private string newName = "";
+    private string newRoom = "Гостиная";
+    private string newIcon = "💡";
+    private int newWattage = 50;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!UserSession.IsLoggedIn) { Nav.NavigateTo("/login"); return; }
+        try { await LoadData(); await LogEvent($"Вход: {UserSession.CurrentUser}"); }
+        catch (Exception ex) { Console.WriteLine($"Ошибка: {ex.Message}"); }
+    }
+
+    private async Task Logout() { UserSession.Logout(); Nav.NavigateTo("/login"); }
+    private async Task LoadData() { 
+        devices = await Db.Devices.ToListAsync(); 
+        eventLogs = await Db.Logs.OrderByDescending(l => l.Id).Take(20).ToListAsync(); 
+    }
+    private async Task LogEvent(string message) {
+        var newLog = new SmartLog { Time = DateTime.Now.ToString("HH:mm:ss"), Message = message };
+        Db.Logs.Add(newLog); await Db.SaveChangesAsync();
+        eventLogs.Insert(0, newLog); if (eventLogs.Count > 20) eventLogs.RemoveAt(20);
+        StateHasChanged();
+    }
+    private async Task SaveChange(SmartDevice device) { Db.Devices.Update(device); await Db.SaveChangesAsync(); StateHasChanged(); }
+    private async Task ToggleDevice(SmartDevice device) {
+        device.IsOn = !device.IsOn;
+        await LogEvent($"{(device.IsOn ? "ВКЛ" : "ВЫКЛ")} {device.Name}");
+        await SaveChange(device);
+    }
+    private async Task AddNewDevice() {
+        if (string.IsNullOrWhiteSpace(newName)) return;
+        var device = new SmartDevice { Name = newName, Room = newRoom, Icon = newIcon, Wattage = newWattage, IsOn = false, Value = 50 };
+        Db.Devices.Add(device); await Db.SaveChangesAsync();
+        await LogEvent($"Добавлено: {newName}"); newName = ""; await LoadData();
+    }
+    private async Task DeleteDevice(SmartDevice device) {
+        Db.Devices.Remove(device); await Db.SaveChangesAsync();
+        await LogEvent($"Удалено: {device.Name}"); await LoadData();
+    }
+    private async Task TurnOnEverything() {
+        devices.ForEach(d => d.IsOn = true); Db.Devices.UpdateRange(devices);
+        await Db.SaveChangesAsync(); await LogEvent("Массовое ВКЛ"); await LoadData();
+    }
+    private async Task TurnOffEverything() {
+        devices.ForEach(d => d.IsOn = false); Db.Devices.UpdateRange(devices);
+        await Db.SaveChangesAsync(); await LogEvent("Массовое ВЫКЛ"); await LoadData();
+    }
+    private async Task SetScenario(string name) {
+        if (name == "Кино") {
+            foreach (var d in devices) {
+                if (d.Name.ToLower().Contains("тв")) { d.IsOn = true; d.Value = 100; }
+                else if (d.Room == "Гостиная") { d.IsOn = true; d.Value = 10; }
+                else d.IsOn = false;
+            }
+            await LogEvent("Сценарий: КИНО");
+        } else if (name == "Ушел") {
+            devices.ForEach(d => d.IsOn = false); await LogEvent("Сценарий: Я УШЕЛ");
+        }
+        Db.Devices.UpdateRange(devices); await Db.SaveChangesAsync(); StateHasChanged();
+    }
+    private void StartOffTimer(SmartDevice device) {
+        var timer = new System.Timers.Timer(10000);
+        timer.Elapsed += async (s, e) => {
+            await InvokeAsync(async () => {
+                device.IsOn = false; await SaveChange(device);
+                await LogEvent($"Таймер (10с): {device.Name} ВЫКЛ"); StateHasChanged();
+            });
+            timer.Dispose();
+        };
+        timer.Start();
+    }
+    private async Task AddDemoDevices() {
+        if (!Db.Devices.Any()) {
+            Db.Devices.AddRange(
+                new SmartDevice { Name = "Smart TV", Room = "Гостиная", IsOn = false, Value = 50, Icon = "📺", Wattage = 150 },
+                new SmartDevice { Name = "Люстра", Room = "Гостиная", IsOn = true, Value = 80, Icon = "💡", Wattage = 60 },
+                new SmartDevice { Name = "Кофеварка", Room = "Кухня", IsOn = false, Value = 0, Icon = "☕", Wattage = 1200 },
+                new SmartDevice { Name = "Ночник", Room = "Спальня", IsOn = true, Value = 20, Icon = "💡", Wattage = 10 }
+            );
+            await Db.SaveChangesAsync(); await LogEvent("Демо-данные загружены"); await LoadData();
+        }
+    }
+}

@@ -1,0 +1,83 @@
+﻿@page "/register"
+@using Smart_Home_Dashboard.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Db
+@inject NavigationManager Nav
+@rendermode InteractiveServer
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card bg-dark text-white p-4 shadow-lg border-secondary" style="width: 100%; max-width: 400px; border-radius: 15px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-info">Регистрация</h2>
+            <p class="text-secondary small">Создайте аккаунт для Maxoloroid</p>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label small text-secondary">Логин</label>
+            <input @bind="login" class="form-control bg-dark text-white border-secondary" placeholder="Придумайте имя..." />
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label small text-secondary">Пароль</label>
+            <input @bind="password" type="password" class="form-control bg-dark text-white border-secondary" placeholder="••••" />
+        </div>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger py-2 small">@errorMessage</div>
+        }
+        @if (!string.IsNullOrEmpty(successMessage))
+        {
+            <div class="alert alert-success py-2 small">@successMessage</div>
+        }
+
+        <button class="btn btn-info w-100 fw-bold py-2 mb-3" @onclick="HandleRegister">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button class="btn btn-outline-secondary w-100 btn-sm" @onclick='() => Nav.NavigateTo("/login")'>Назад ко входу</button>
+    </div>
+</div>
+
+@code {
+    private string login = "";
+    private string password = "";
+    private string errorMessage = "";
+    private string successMessage = "";
+
+    private async Task HandleRegister()
+    {
+        errorMessage = "";
+        successMessage = "";
+
+        if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+        {
+            errorMessage = "Заполните все поля!";
+            return;
+        }
+
+        try
+        {
+            // Проверяем, не занят ли логин
+            var userExists = await Db.Users.AnyAsync(u => u.Username == login);
+            if (userExists)
+            {
+                errorMessage = "Этот логин уже занят!";
+                return;
+            }
+
+            // Создаем нового пользователя
+            var newUser = new User { Username = login, Password = password };
+            Db.Users.Add(newUser);
+            await Db.SaveChangesAsync();
+
+            successMessage = "Успешно! Теперь можно войти.";
+            
+            // Через 2 секунды отправляем на страницу входа
+            await Task.Delay(2000);
+            Nav.NavigateTo("/login");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка при сохранении в базу.";
+            Console.WriteLine(ex.Message);
+        }
+    }
+}

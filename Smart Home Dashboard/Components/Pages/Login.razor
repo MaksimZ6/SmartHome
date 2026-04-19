@@ -1,0 +1,77 @@
+﻿@page "/login"
+@using Smart_Home_Dashboard.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Db
+@inject NavigationManager Nav
+@rendermode InteractiveServer
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card bg-dark text-white p-4 shadow-lg border-secondary" style="width: 100%; max-width: 400px; border-radius: 15px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-info">Maxoloroid</h2>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label small text-secondary">Логин</label>
+            <input @bind="login" class="form-control bg-dark text-white border-secondary" placeholder="Введите имя..." />
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label small text-secondary">Пароль</label>
+            <input @bind="password" type="password" class="form-control bg-dark text-white border-secondary" placeholder="••••" />
+        </div>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger py-2 small">@errorMessage</div>
+        }
+
+        <button class="btn btn-info w-100 fw-bold py-2" @onclick="HandleLogin">ВОЙТИ</button>
+    </div>
+</div>
+@* Добавь это под кнопкой "ВОЙТИ" в Login.razor *@
+<div class="text-center mt-3">
+    <span class="small text-secondary">Нет аккаунта? </span>
+    <button class="btn btn-link btn-sm text-info p-0" @onclick='() => Nav.NavigateTo("/register")'>Зарегистрироваться</button>
+</div>
+
+@code {
+    private string login = "";
+    private string password = "";
+    private string errorMessage = "";
+
+    private async Task HandleLogin()
+    {
+        errorMessage = "";
+
+        if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+        {
+            errorMessage = "Заполните все поля!";
+            return;
+        }
+
+   
+
+        try
+        {
+            // 2. ПРОВЕРКА ЧЕРЕЗ БАЗУ ДАННЫХ
+            var user = await Db.Users
+                .FirstOrDefaultAsync(u => u.Username == login && u.Password == password);
+
+            if (user != null)
+            {
+                UserSession.CurrentUser = user.Username;
+                Nav.NavigateTo("/");
+            }
+            else
+            {
+                errorMessage = "Неверный логин или пароль";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка базы данных. Проверьте подключение.";
+            Console.WriteLine(ex.Message);
+        }
+    }
+}
