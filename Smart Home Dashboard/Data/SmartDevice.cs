@@ -10,7 +10,6 @@ namespace Smart_Home_Dashboard.Data
         public int Value { get; set; }
         public string Icon { get; set; } = "💡";
 
-        // НОВОЕ: Мощность устройства в Ваттах (например, 60Вт)
         public int Wattage { get; set; } = 50;
     }
 }

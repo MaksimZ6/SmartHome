@@ -6,7 +6,6 @@ namespace Smart_Home_Dashboard.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            // Это создаст файл базы автоматически при запуске проекта
             Database.EnsureCreated();
         }
 
