@@ -11,7 +11,7 @@
     font-size: 1.1rem;
 }
 
-/* ГЛАВНОЕ: Убираем градиент и ставим стекло */
+/* ГЛАВНО*/
 .nav-scrollable {
     background-image: none !important; /* Удаляет фиолетовый */
     background-color: rgba(13, 27, 42, 0.4) !important;

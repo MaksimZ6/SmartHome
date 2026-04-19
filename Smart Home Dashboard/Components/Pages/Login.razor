@@ -54,7 +54,7 @@
 
         try
         {
-            // 2. ПРОВЕРКА ЧЕРЕЗ БАЗУ ДАННЫХ
+            // 2
             var user = await Db.Users
                 .FirstOrDefaultAsync(u => u.Username == login && u.Password == password);
 

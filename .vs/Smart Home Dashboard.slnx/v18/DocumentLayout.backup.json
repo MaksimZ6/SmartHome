@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\smartdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\smartdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\smartlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\smartlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -23,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\smartdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\smartdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -43,20 +51,12 @@
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|c:\\users\\\u043C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\smart home dashboard\\smart home dashboard\\data\\smartlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E8BB86F-9F56-EC63-E760-F122AA82894A}|Smart Home Dashboard\\Smart Home Dashboard.csproj|solutionrelative:smart home dashboard\\data\\smartlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -65,12 +65,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 224,
-          "SelectedChildIndex": 9,
+          "DockedHeight": 348,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Weather.razor",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Pages\\Weather.razor",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Pages\\Weather.razor",
@@ -78,12 +78,11 @@
               "RelativeToolTip": "Smart Home Dashboard\\Components\\Pages\\Weather.razor",
               "ViewState": "AgIAAGUAAAAAAAAAAAAIwG8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T01:22:26.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-19T01:22:26.038Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Pages\\Register.razor",
@@ -95,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UserSession.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\UserSession.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Data\\UserSession.cs",
@@ -107,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Pages\\Login.razor",
@@ -115,12 +114,11 @@
               "RelativeToolTip": "Smart Home Dashboard\\Components\\Pages\\Login.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-18T22:45:04.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T22:45:04.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\User.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Data\\User.cs",
@@ -132,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
               "Title": "SmartLog.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\SmartLog.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Data\\SmartLog.cs",
@@ -140,36 +138,38 @@
               "RelativeToolTip": "Smart Home Dashboard\\Data\\SmartLog.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T22:31:21.444Z"
+              "WhenOpened": "2026-04-18T22:31:21.444Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Smart Home Dashboard\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T22:03:23.33Z"
+              "WhenOpened": "2026-04-18T22:03:23.33Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "SmartDevice.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\SmartDevice.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Data\\SmartDevice.cs",
               "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Data\\SmartDevice.cs",
               "RelativeToolTip": "Smart Home Dashboard\\Data\\SmartDevice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T22:03:09.419Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Program.cs",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Program.cs",
@@ -181,13 +181,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Smart Home Dashboard\\Components\\Pages\\Home.razor",
-              "ViewState": "AgIAACwAAAAAAAAAAAAUwDwAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-18T21:54:35.325Z",
               "EditorCaption": ""
@@ -195,60 +195,9 @@
           ]
         },
         {
-          "DockedHeight": 176,
-          "SelectedChildIndex": 0,
+          "DockedHeight": 52,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAADsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T00:22:07.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\App.razor",
-              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\App.razor",
-              "RelativeToolTip": "Smart Home Dashboard\\Components\\App.razor",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-19T00:05:13.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NavMenu.razor.css",
-              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
-              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
-              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
-              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAIwCcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-18T23:53:55.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-18T23:46:23.714Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
@@ -260,6 +209,55 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwDkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T00:22:07.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\App.razor",
+              "RelativeToolTip": "Smart Home Dashboard\\Components\\App.razor",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T00:05:13.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NavMenu.razor.css",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
+              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
+              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor.css",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAIwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-18T23:53:55.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043A\u0441\u0438\u043C\u043A\u0430\\source\\repos\\Smart Home Dashboard\\Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Smart Home Dashboard\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T23:46:23.714Z"
             }
           ]
         }
